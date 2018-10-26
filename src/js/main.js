@@ -64,7 +64,7 @@ function hideValidate(input) {
 }
 
 function onReady(e) {
-    // registerServiceWorker();
+    registerServiceWorker();
     info(`Event: ${e.type}`, `Datestamp: ${this.date}`);
 };
 
