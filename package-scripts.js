@@ -24,8 +24,10 @@ const copyTasks = (src, dest) => {
   return {
     fonts: `rm -rf ${join(dest, 'static/fonts')};mkdir -p ${join(dest, 'static/fonts')} && cp -R ${join(src, 'fonts')} ${join(dest, 'static')}`,
     images: `rm -rf ${join(dest, 'static/images')};mkdir -p ${join(dest, 'static/images')} && cp -R ${join(src, 'images')} ${join(dest, 'static')}`,
+    lib: `rm -rf ${join(dest, 'static/lib')};mkdir -p ${join(dest, 'static/lib')} && cp -R ${join(src, 'lib')} ${join(dest, 'static')}`,
     watchFonts: priv(watch('nps copy.fonts', join(src, 'fonts'))),
-    watchImages: priv(watch('nps copy.images', join(src, 'images')))
+    watchImages: priv(watch('nps copy.images', join(src, 'images'))),
+    watchLib: priv(watch('nps copy.lib', join(src, 'lib')))
   }
 };
 
@@ -93,12 +95,12 @@ module.exports = {
         'Removes the build folder.',
       ),
       default: pub(
-        'nps build.clean && concurrently "nps css.build" "nps js.build" "nps hugo.build" "nps svg.build" "nps copy.fonts" "nps copy.images" && nps sw',
+        'nps build.clean && concurrently "nps css.build" "nps js.build" "nps hugo.build" "nps svg.build" "nps copy.fonts" "nps copy.images" "nps copy.lib" && nps sw',
         'Builds a production version of all assets and a service worker.',
       ),
     },
     start: {
-      dev: priv('nps build.clean && concurrently "nps css.watch" "nps js.watch" "nps hugo.watch" "nps svg.watch" "nps copy.watchFonts" "nps copy.watchImages" "nps browser-sync"'),
+      dev: priv('nps build.clean && concurrently "nps css.watch" "nps js.watch" "nps hugo.watch" "nps svg.watch" "nps copy.watchFonts" "nps copy.watchImages" "nps copy.watchLib" "nps browser-sync"'),
       staging: pub(
         'cross-env NODE_ENV=staging nps start.dev',
         'Starts a dev-server with production versions of all assets (but no service-worker)',

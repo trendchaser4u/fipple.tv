@@ -1,26 +1,66 @@
 {{ $title := delimit (slice .Title "&middot;" .Site.Title) " " }}
 <!doctype html>
-<html class="no-js" lang="{{ .Site.LanguageCode }}">
+<html class="no-js" lang="{{ .Site.LanguageCode }}" prefix="og: http://ogp.me/ns#">
 
 <head>
     <base href="/" />
+    <link rel="dns-prefetch" href="//fonts.googleapis.com">
+    <link rel="dns-prefetch" href="//www.google-analytics.com">
+    <title>{{ $title }}</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>{{ $title }}</title>
-    <meta name="description" content="{{ .Description }}">
-    <link rel="canonical" href="{{ .Permalink }}">
-    <link rel="manifest" href="{{ "/manifest.json" | relURL }}">
+    <meta name="p:domain_verify" content="d56ccaf7905c3d695aae006f7b526ce7" />
+    <meta name="google-site-verification" content="e5zy92wUJKYZM3hHhJry5r_2x47kYzH9VdMqAUYBWoc" />
+    <meta name="keywords" content="entertainment, web, videos, images, sports, music, cinema, trending, television, news, customize">
+    <meta name="description" content="Fipple.tv is a new age entertainment website. We are the global,multi-platform media and entertainment company. We share the best of the web culture and what’s trending">
+    <!-- Twitter Card data -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@foobitsmedia" />
+    <meta name="twitter:title" content="Fipple.tv - A new experience in web" />
+    <meta name="twitter:description" content="Fipple.tv is a new age entertainment website. We are the global,multi-platform media and entertainment company. We share the best of the web culture and what’s trending" />
+    <meta name="twitter:image:src" content="http://fipple.tv/static/images/logo-c.png" />
+    <!-- Open Graph data -->
+    <meta property="og:title" content="Fipple.tv - A new experience in web" />
+    <meta property="og:description" content="Fipple.tv is a new age entertainment website. We are the global,multi-platform media and entertainment company. We share the best of the web culture and what’s trending" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="http://fipple.tv/" />
+    <meta property="og:image" content="http://fipple.tv/static/images/logo-c.png" />
+    <meta property="og:image:type" content="image/svg+xml" />
+    <meta property="og:image:width" content="318" />
+    <meta property="og:image:height" content="242" />
+    <meta property="og:image:alt" content="Fipple.tv" />
+    <!-- Schema.org markup for Google+ -->
+    <meta itemprop="name" content="Fipple.tv - A new experience in web" />
+    <meta itemprop="image" content="http://fipple.tv/static/images/logo-c.png" />
+    <meta itemprop="description" content="Fipple.tv is a new age entertainment website. We are the global,multi-platform media and entertainment company. We share the best of the web culture and what’s trending" />
     <meta name="application-name" content="{{ $title }}">
-    <meta name="theme-color" content="#2271ff">
+    <meta name="msapplication-TileImage" content="images/fav/ms-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#f08773">
+    <meta name="theme-color" content="#f08773" />
+    <link rel="canonical" href="{{ .Permalink }}">
+    <link rel="alternate" href="{{ .Permalink }}" hreflang="en">
+    <link rel="apple-touch-icon" sizes="57x57" href="static/images/fav/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="static/images/fav/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="static/images/fav/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="static/images/fav/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="static/images/fav/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="static/images/fav/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="static/images/fav/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="static/images/fav/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/fav/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="static/images/fav/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/fav/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="static/images/fav/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="static/images/fav/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="static/images/fav/favicon.ico" />
+    <link rel="manifest" href="{{ "/manifest.json" | relURL }}">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+    <link rel="stylesheet" href="{{ "static/css/main.css" | relURL }}">
     {{ if .RSSLink }}
     <link href="{{ .RSSLink }}" rel="alternate" type="application/rss+xml" title="{{ $title }}" />
     <link href="{{ .RSSLink }}" rel="feed" type="application/rss+xml" title="{{ $title }}" />
     {{ end }}
-    <link rel="shortcut icon" href="{{"static/images/fav/favicon.ico"|relURL}}">
-    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
-    <link rel="stylesheet" href="{{ "static/css/main.css" | relURL }}">
-    <script defer src="{{ "static/js/main.bundle.js" | relURL }}"></script>
 </head>
 
 <body>
@@ -37,22 +77,6 @@
         {{partial "site-footer.html" .}}
         {{ end }}
     </div>
-    <script type="text/javascript">
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-116982908-1', 'auto');
-    ga('send', 'pageview');
-    </script>
 </body>
 
 </html>

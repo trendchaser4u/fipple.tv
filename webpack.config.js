@@ -27,14 +27,14 @@ module.exports = {
     stats: 'normal',
     watch: !optimizeBuild,
     plugins: [
-        new webpack.ProvidePlugin({
-            $: 'jquery',
-            jQuery: 'jquery',
-            'window.jQuery': 'jquery'
-        }),
-        new webpack.ProvidePlugin({
-            moment: 'moment',
-            'window.moment': 'moment'
-        }),
+        // new webpack.ProvidePlugin({
+        //     $: 'jquery',
+        //     jQuery: 'jquery',
+        //     'window.jQuery': 'jquery'
+        // }),
+        // new webpack.ProvidePlugin({
+        //     moment: 'moment',
+        //     'window.moment': 'moment'
+        // }),
     ]
 };

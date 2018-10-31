@@ -8,3 +8,8 @@
 @import "lib/flipclock.css";
 @import 'lib/app.css';
 @import 'lib/style.css';
+
+.fipple-header-social-wrapper a,.fipple-header-social-wrapper a:focus{
+  text-decoration: none;
+  color: #fff;
+}
